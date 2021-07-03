@@ -4,9 +4,9 @@
 The nonparametric Mann-Kendall-Sneyers (MKS) test, oftentimes called the sequential MKS test, has been applied to the change point detection for long-term time series data (e.g., hydrological changes, climatic changes). According to the Centers for Disease Control and Prevention (CDC), both social distancing and mass gathering can potentially lead to an abrupt change in regional COVID-19 cases, albeit in different directions. Then, we have evaluated the potential of the MKS test for change point detection in short-term time series data, the COVID-19 cases of infection. 
 
 ## Data description
-The [dataset](mks/data.csv) used for the analysis is the COVID-19 time series data in all 50 US states. The state-level case data were derived from the [USAFacts](https://usafacts.org/data/) with the coverage from March 23, 2020 through January 31, 2021 in a total of 45 weeks. The data were aggregated on a weekly basis for each state, representing new weekly cases.
+The [dataset](mks/Data.xlsx) used for the analysis is the COVID-19 time series data in all 50 US states. The state-level case data were derived from the [USAFacts](https://usafacts.org/data/) with the coverage from March 23, 2020 through January 31, 2021 in a total of 45 weeks. The data were aggregated on a weekly basis for each state, representing new weekly cases.
 
-The [dataset](mks/data.csv) includes varaibles derived by the MKS. The variables are the outputs generated at each step of the analysis (i.e., Case, Mi, Sk, E(Sk), VAR(Sk), R_case, R_Mi, R_Sk, R_Uf, and U_b). The [dataset](mks/data.csv) also includes the final plots with the forward sequence U_f and the backward sequence U_b for each state.
+The [dataset](mks/Data.xlsx) includes varaibles derived by the MKS. The variables are the outputs generated at each step of the analysis (i.e., Case, Mi, Sk, E(Sk), VAR(Sk), R_case, R_Mi, R_Sk, R_Uf, and U_b). The [dataset](mks/Data.xlsx) also includes the final plots with the forward sequence U_f and the backward sequence U_b for each state.
 
 ### Data columns
 Week: week ID, where Week 1 starts on March 23, 2020 and Week 45 ends on January 31, 2021.
