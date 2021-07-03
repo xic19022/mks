@@ -4,23 +4,23 @@
 The nonparametric Mann-Kendall-Sneyers (MKS) test, oftentimes called the sequential MKS test, has been applied to the change point detection for long-term time series data (e.g., hydrological changes, climatic changes). According to the Centers for Disease Control and Prevention (CDC), both social distancing and mass gathering can potentially lead to an abrupt change in regional COVID-19 cases, albeit in different directions. Then, we have evaluated the potential of the MKS test for change point detection in short-term time series data, the COVID-19 cases of infection. 
 
 ## Data description
-The [dataset](Data.xlsx) used for the analysis is the COVID-19 time series data in all 50 US states. The state-level case data were derived from the [USAFacts](https://usafacts.org/data/) with the coverage from March 23, 2020 through January 31, 2021 in a total of 45 weeks. The data were aggregated on a weekly basis for each state, representing new weekly cases.
+The [dataset](Data.xlsx) used for the analysis is the COVID-19 time series data in all 50 US states. The state-level case data were derived from the [USAFacts](https://usafacts.org/data/) with the coverage from March 23, 2020 through January 31, 2021 in a total of 45 weeks. The data were aggregated on a weekly basis for each state, generating new weekly cases as the time series *X*.
 
-The [dataset](Data.xlsx) includes varaibles derived by the MKS. The variables are the outputs generated at each step of the analysis (i.e., Case, Mi, Sk, E(Sk), VAR(Sk), R_case, R_Mi, R_Sk, R_Uf, and U_b). The [dataset](Data.xlsx) also includes the final plots with the forward sequence U_f and the backward sequence U_b for each state.
+The [dataset](Data.xlsx) includes varaibles derived by the MKS test. The variables include *Case, Mi, Sk, E(Sk), VAR(Sk), R_case, R_Mi, R_Sk, R_Uf, and U_b*. The [dataset](Data.xlsx) also includes the final plots with the forward sequence *U_f* and the backward sequence *U_b* for each state.
 
 ### Data columns
-Week: week ID, where Week 1 starts on March 23, 2020 and Week 45 ends on January 31, 2021.
-Case: new weekly cases in the time series X.
-Mi: cumulative times that the case value of the current week is larger than that of each preceding week.
-Sk: test statistics of X.
-E(Sk): mean of Sk.
-VAR(Sk): variance of Sk.
-U_f: forward sequence of X.
-R_case: X_r, the reversed time series X.
-R_Mi: Mi of R_case.
-R_Sk: Sk of the reversed time series X (X_r).
-R_Uf: Intermediate sequence (U_fr) derived from the reversed time series X (X_r).
-U_b: backward sequence of X.
+*Week*: week ID, where Week 1 starts on March 23, 2020 and Week 45 ends on January 31, 2021.
+*Case*: new weekly cases in the time series *X*.
+*Mi*: cumulative times that the case value of the current week is larger than that of each preceding week.
+*Sk*: test statistics of *X*.
+*E(Sk)*: mean of *Sk*.
+*VAR(Sk)*: variance of *Sk*.
+*U_f*: forward sequence of *X*.
+*R_case*: the reversed time series *X* (*Xr*).
+*R_Mi*: *Mi* of *R_case*.
+*R_Sk*: *Sk* of the reversed time series *X* (*Xr*).
+*R_Uf*: Intermediate sequence (*U_fr*) derived from the reversed time series *X* (*Xr*).
+*U_b*: backward sequence of *X*.
 
 ### Step-to-step implementation in [data](Data.xlsx)
 1. D2, E2, F2, G2, H2, J2, K2, L2 = 0.
@@ -37,13 +37,13 @@ U_b: backward sequence of X.
 12. M2 = -INDIRECT(“L”&P$1-A2+2), then apply the same function to the rest of the column.
 13. Q2 = 1.96 (positive z-score for the upper 95% CI), then apply the same function to the rest of the column.
 14. R2 = -1.96 (negative z-score for the lower 95% CI, then apply the same function to the rest of the column.
-15. Plot U_f, U_b, and y = ±1.96 (95% CIs) in a figure for each state.
+15. Plot U_f, U_b, and y = ±1.96 (95% CIs) in a diagram for each state.
 
 ## Results and example
 The figure below shows the MKS test result for Virginia with the forward sequence (solid line) and the backward sequence (dashed line). The black dot is the identified change point, and the white dot is the excluded change point.
 
 ![Virginia](Virginia change points.jpg)
 
-The figure below shows the detected change points for the 32 states with at least one change point withint the 95% CIs.
+The figure below shows the detected change points withint the 95% CIs for all states (*n* = 32).
 
 ![States](State change points.jpg)
