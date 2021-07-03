@@ -42,8 +42,8 @@ The [dataset](Data.xlsx) includes varaibles derived by the MKS test. The variabl
 ## Results and example
 The figure below shows the MKS test result for Virginia with the forward sequence (solid line) and the backward sequence (dashed line). The black dot is the identified change point, and the white dot is the excluded change point.
 
-![Virginia](images/Virginia.jpg)
+![Virginia](mks/images/Virginia.jpg)
 
 The figure below shows the detected change points withint the 95% CIs for all states (*n* = 32).
 
-![State](images/State.jpg)
+![State](mks/images/State.jpg)
