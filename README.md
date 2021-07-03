@@ -1,12 +1,12 @@
-# A modified MKS test for health time series data
+# A modified MKS test for COVID-19 change point detection
 
 ## Introduction
-The nonparametric Mann-Kendall-Sneyers (MKS) test, oftentimes called the sequential MKS test, has been applied to the change point detection for long-term time series data (e.g., hydrological changes, climatic changes). According to the Centers for Disease Control and Prevention (CDC) report, both social distancing and mass gathering can potentially lead to an abrupt change in regional COVID-19 cases, albeit in different directions. Then, we have evaluated the potential of the MKS test for change point detection in short-term time series data, the COVID-19 cases of infection. 
+The nonparametric Mann-Kendall-Sneyers (MKS) test, oftentimes called the sequential MKS test, has been applied to the change point detection for long-term time series data (e.g., hydrological changes, climatic changes). According to the Centers for Disease Control and Prevention (CDC), both social distancing and mass gathering can potentially lead to an abrupt change in regional COVID-19 cases, albeit in different directions. Then, we have evaluated the potential of the MKS test for change point detection in short-term time series data, the COVID-19 cases of infection. 
 
 ## Data description
-The data used for the analysis is the COVID-19 time series data in all 50 US states. The state-level case data were derived from the [USAFacts](https://usafacts.org/data/) with the coverage from March 23, 2020 through January 31, 2021 in a total of 45 weeks. The data were aggregated on a weekly basis for each state, representing new weekly cases.
+The [dataset](mks/data.csv) used for the analysis is the COVID-19 time series data in all 50 US states. The state-level case data were derived from the [USAFacts](https://usafacts.org/data/) with the coverage from March 23, 2020 through January 31, 2021 in a total of 45 weeks. The data were aggregated on a weekly basis for each state, representing new weekly cases.
 
-The file *data.csv* includes varaibles derived by the MKS. The variables are the outputs generated at each step of the analysis (i.e., Case, Mi, Sk, E(Sk), VAR(Sk), R_case, R_Mi, R_Sk, R_Uf, and U_b). The file also includes the final plots with the forward sequence U_f and the backward sequence U_b for each state.
+The [dataset](mks/data.csv) includes varaibles derived by the MKS. The variables are the outputs generated at each step of the analysis (i.e., Case, Mi, Sk, E(Sk), VAR(Sk), R_case, R_Mi, R_Sk, R_Uf, and U_b). The [dataset](mks/data.csv) also includes the final plots with the forward sequence U_f and the backward sequence U_b for each state.
 
 ### Data columns
 Week: week ID, where Week 1 starts on March 23, 2020 and Week 45 ends on January 31, 2021.
@@ -22,7 +22,7 @@ R_Sk: Sk of the reversed time series X (X_r).
 R_Uf: Intermediate sequence (U_fr) derived from the reversed time series X (X_r).
 U_b: backward sequence of X.
 
-### Step-to-step method implementation in *data.csv*
+### Step-to-step implementation in [data](mks/data.csv)
 1. D2, E2, F2, G2, H2, J2, K2, L2 = 0.
 2. P1 = A46.
 3. I2 = INDIRECT(“C”&P$1-A2+2).
@@ -37,7 +37,13 @@ U_b: backward sequence of X.
 12. M2 = -INDIRECT(“L”&P$1-A2+2), then apply the same function to the rest of the column.
 13. Q2 = 1.96 (positive z-score for the upper 95% CI), then apply the same function to the rest of the column.
 14. R2 = -1.96 (negative z-score for the lower 95% CI, then apply the same function to the rest of the column.
-15. Plot U_f, U_b, and y = ±1.96 in a figure for each state.
+15. Plot U_f, U_b, and y = ±1.96 (95% CIs) in a figure for each state.
 
-## Example
+## Results and example
 The figure below shows the MKS test result for Virginia with the forward sequence (solid line) and the backward sequence (dashed line). The black dot is the identified change point, and the white dot is the excluded change point.
+
+![Virginia](mks/Virginia change points.jpg)
+
+The figure below shows the detected change points for the 32 states with at least one change point withint the 95% CIs.
+
+![States](mks/State change points.jpg)
