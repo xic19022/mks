@@ -16,7 +16,7 @@ The [dataset](Data.xlsx) includes varaibles derived by the MKS test. The variabl
 - *E(Sk)*: mean of *Sk*.
 - *VAR(Sk)*: variance of *Sk*.
 - *U_f*: forward sequence of *X*.
-- *R_case*: the reversed time series *X* (*Xr*).
+- *R_case*: reversed time series *X* (*Xr*).
 - *R_Mi*: *Mi* of *R_case*.
 - *R_Sk*: *Sk* of the reversed time series *X* (*Xr*).
 - *R_Uf*: Intermediate sequence (*U_fr*) derived from the reversed time series *X* (*Xr*).
