@@ -46,4 +46,4 @@ The figure below shows the MKS test result for Virginia with the forward sequenc
 
 The figure below shows the detected change points withint the 95% CIs for all states (*n* = 32).
 
-![State](State.jpg)
+![State](State_change.jpg)
